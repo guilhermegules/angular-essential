@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Flannel shirt",
+      "price": 10.00
+    },
+    {
+      "id": 2,
+      "name": "Social shirt",
+      "price": 20.00
+    },
+    {
+      "id": 1,
+      "name": "t-shirt",
+      "price": 15.00
+    }
+  ]
+}
