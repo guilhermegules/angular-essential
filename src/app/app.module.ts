@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
+import { ViewsModule } from './views/views.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, NavComponent],
@@ -20,6 +21,7 @@ import { NavComponent } from './components/template/nav/nav.component';
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
+    ViewsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
