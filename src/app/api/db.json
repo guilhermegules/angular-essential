@@ -3,17 +3,17 @@
     {
       "id": 1,
       "name": "Flannel shirt",
-      "price": 10.00
+      "price": 10
     },
     {
       "id": 2,
       "name": "Social shirt",
-      "price": 20.00
+      "price": 20
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "t-shirt",
-      "price": 15.00
+      "price": 15
     }
   ]
 }

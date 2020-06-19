@@ -1,7 +1,6 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
 
 import { ViewsRoutingModule } from './views-routing.module';
 
@@ -11,7 +10,7 @@ import { CreateProductComponent } from './products/create-product/create-product
 
 @NgModule({
   declarations: [HomeComponent, ProductsComponent, CreateProductComponent],
-  imports: [MatButtonModule, MatCardModule, CommonModule, ViewsRoutingModule],
+  imports: [CommonModule, ViewsRoutingModule, SharedModule],
   exports: [HomeComponent, ProductsComponent],
 })
 export class ViewsModule {}
