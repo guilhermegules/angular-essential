@@ -1,20 +1,20 @@
 <mat-card [formGroup]="productForm">
-  <mat-card-title>New Product</mat-card-title>
+  <mat-card-title>Novo Produto</mat-card-title>
   <div class="form-group">
     <mat-form-field>
-      <input matInput placeholder="Name" formControlName="name" />
+      <input matInput placeholder="Nome" formControlName="name" />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Price ($)" formControlName="price" />
+      <input matInput placeholder="Preço" formControlName="price" />
     </mat-form-field>
   </div>
 
   <button mat-raised-button (click)="addProduct()" color="primary">
-    Save
+    Salvar
   </button>
 
   <button mat-raised-button (click)="cancel()">
-    Cancel
+    Cancelar
   </button>
 </mat-card>

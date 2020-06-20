@@ -6,12 +6,17 @@
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th class="table-header" mat-header-cell *matHeaderCellDef>Name</th>
+      <th class="table-header" mat-header-cell *matHeaderCellDef>Nome</th>
       <th class="table-cell" mt-cell *matCellDef="let row">{{ row.name }}</th>
     </ng-container>
 
     <ng-container matColumnDef="price">
-      <th class="table-header" mat-header-cell *matHeaderCellDef>Price</th>
+      <th class="table-header" mat-header-cell *matHeaderCellDef>Preço</th>
+      <th class="table-cell" mt-cell *matCellDef="let row">{{ row.price | currency: 'BRL' }}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th class="table-header" mat-header-cell *matHeaderCellDef>Ações</th>
       <th class="table-cell" mt-cell *matCellDef="let row">{{ row.price | currency: 'BRL' }}</th>
     </ng-container>
 
