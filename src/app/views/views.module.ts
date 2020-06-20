@@ -9,9 +9,17 @@ import { HomeComponent } from './home/home.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { ListProductComponent } from './products/list-product/list-product.component';
 import { UpdateProductComponent } from './products/update-product/update-product.component';
+import { RemoveProductComponent } from './products/remove-product/remove-product.component';
 
 @NgModule({
-  declarations: [HomeComponent, ProductsComponent, CreateProductComponent, ListProductComponent, UpdateProductComponent],
+  declarations: [
+    HomeComponent,
+    ProductsComponent,
+    CreateProductComponent,
+    ListProductComponent,
+    UpdateProductComponent,
+    RemoveProductComponent,
+  ],
   imports: [CommonModule, ViewsRoutingModule, SharedModule],
   exports: [HomeComponent, ProductsComponent],
 })

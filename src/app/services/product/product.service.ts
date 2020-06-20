@@ -32,6 +32,13 @@ export class ProductService {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(`${environment.apiUrl}/products/${product.id}`, product);
+    return this.http.put<Product>(
+      `${environment.apiUrl}/products/${product.id}`,
+      product
+    );
+  }
+
+  removeProduct(id: string): Observable<Product> {
+    return this.http.delete<Product>(`${environment.apiUrl}/products/${id}`);
   }
 }

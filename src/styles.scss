@@ -12,3 +12,15 @@ body {
 .v-middle {
   vertical-align: middle;
 }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+mat-card {
+  button {
+    margin: 20px 15px 0 0 !important;
+  }
+}
