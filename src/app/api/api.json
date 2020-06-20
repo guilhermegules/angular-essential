@@ -19,11 +19,6 @@
       "name": "Roupas",
       "price": 500,
       "id": 4
-    },
-    {
-      "name": "Camisa",
-      "price": "100",
-      "id": 5
     }
   ]
 }

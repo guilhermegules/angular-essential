@@ -24,3 +24,14 @@ mat-card {
     margin: 20px 15px 0 0 !important;
   }
 }
+
+.message {
+  &__success {
+    background-color: #28a745;
+    color: #ffffff;
+  }
+  &__error {
+    background-color: #e35e6b;
+    color: #ffffff;
+  }
+}

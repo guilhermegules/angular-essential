@@ -24,8 +24,9 @@ export class RemoveProductComponent implements OnInit {
     });
   }
 
-  removeProduct(id: string): void {
-    this.productService.removeProduct(id).subscribe(() => {
+  removeProduct(id: number): void {
+    const newId = id.toString();
+    this.productService.removeProduct(newId).subscribe(() => {
       this.productService.showMessage('Produto deletado com sucesso!');
       this.router.navigate(['/products']);
     });

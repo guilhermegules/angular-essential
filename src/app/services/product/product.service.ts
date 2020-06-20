@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -11,16 +12,22 @@ import { Observable } from 'rxjs';
 export class ProductService {
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
-  showMessage(message: string): void {
-    this.snackBar.open(message, 'X', {
+  showMessage(message: string, isError: boolean = false): void {
+    this.snackBar.open(message, '✕', {
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'top',
+      panelClass: isError ? ['message__error'] : ['message__success'],
     });
   }
 
   addProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${environment.apiUrl}/products`, product);
+    return this.http
+      .post<Product>(`${environment.apiUrl}/products`, product)
+      .pipe(
+        map((value) => value),
+        catchError((err) => this.errorHandler(err))
+      );
   }
 
   getProducts(): Observable<Product[]> {
@@ -40,5 +47,10 @@ export class ProductService {
 
   removeProduct(id: string): Observable<Product> {
     return this.http.delete<Product>(`${environment.apiUrl}/products/${id}`);
+  }
+
+  private errorHandler(error: any): Observable<any> {
+    this.showMessage('Ocorreu um erro!', true);
+    return EMPTY;
   }
 }
