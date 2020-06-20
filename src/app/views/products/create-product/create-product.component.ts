@@ -31,7 +31,7 @@ export class CreateProductComponent implements OnInit {
 
   addProduct(): void {
     this.productService.addProduct(this.productForm.value).subscribe(() => {
-      this.productService.showMessage('Product added with success!');
+      this.productService.showMessage('Produto adicionado com sucess!');
     });
   }
 

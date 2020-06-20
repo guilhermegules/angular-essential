@@ -9,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListProductComponent implements OnInit {
   products: Product[];
-  displayedColumns = ['id', 'name', 'price'];
+  displayedColumns = ['id', 'name', 'price', 'action'];
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.productService.listProduct().subscribe((values) => {
+    this.productService.getProducts().subscribe((values) => {
       this.products = values;
     });
   }

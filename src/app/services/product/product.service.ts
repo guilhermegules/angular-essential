@@ -23,7 +23,15 @@ export class ProductService {
     return this.http.post<Product>(`${environment.apiUrl}/products`, product);
   }
 
-  listProduct(): Observable<Product[]> {
+  getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${environment.apiUrl}/products`);
+  }
+
+  getProductById(id: string): Observable<Product> {
+    return this.http.get<Product>(`${environment.apiUrl}/products/${id}`);
+  }
+
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(`${environment.apiUrl}/products/${product.id}`, product);
   }
 }
