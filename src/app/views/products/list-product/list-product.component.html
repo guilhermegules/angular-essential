@@ -1,0 +1,21 @@
+<section class="mat-elevation-z4">
+  <table mat-table [dataSource]="products">
+    <ng-container matColumnDef="id">
+      <th class="table-header" mat-header-cell *matHeaderCellDef>ID</th>
+      <th class="table-cell" mt-cell *matCellDef="let row">{{ row.id }}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th class="table-header" mat-header-cell *matHeaderCellDef>Name</th>
+      <th class="table-cell" mt-cell *matCellDef="let row">{{ row.name }}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th class="table-header" mat-header-cell *matHeaderCellDef>Price</th>
+      <th class="table-cell" mt-cell *matCellDef="let row">{{ row.price | currency: 'BRL' }}</th>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</section>

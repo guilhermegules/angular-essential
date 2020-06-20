@@ -1,7 +1,20 @@
-<button mat-raised-button (click)="addProduct()" color="primary">
-  Save
-</button>
+<mat-card [formGroup]="productForm">
+  <mat-card-title>New Product</mat-card-title>
+  <div class="form-group">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" />
+    </mat-form-field>
 
-<button mat-raised-button (click)="cancel()">
-  Cancel
-</button>
+    <mat-form-field>
+      <input matInput placeholder="Price ($)" formControlName="price" />
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button (click)="addProduct()" color="primary">
+    Save
+  </button>
+
+  <button mat-raised-button (click)="cancel()">
+    Cancel
+  </button>
+</mat-card>

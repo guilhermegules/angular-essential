@@ -6,8 +6,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [],
@@ -19,6 +23,13 @@ import { CommonModule } from '@angular/common';
     MatSnackBarModule,
     MatButtonModule,
     MatCardModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [
     MatToolbarModule,
@@ -27,6 +38,13 @@ import { CommonModule } from '@angular/common';
     MatSnackBarModule,
     MatButtonModule,
     MatCardModule,
-  ]
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

@@ -1,8 +1,8 @@
+import { Product } from './../../models/product.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Product } from 'src/app/models/product.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,11 @@ export class ProductService {
     });
   }
 
-  AddProduct(product: Product): Observable<Product> {
+  addProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(`${environment.apiUrl}/products`, product);
+  }
+
+  listProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${environment.apiUrl}/products`);
   }
 }

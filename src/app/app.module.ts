@@ -1,7 +1,9 @@
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,8 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { ViewsModule } from './views/views.module';
 import { PurpleDirective } from './directives/purple.directive';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -28,7 +32,12 @@ import { PurpleDirective } from './directives/purple.directive';
     SharedModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

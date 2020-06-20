@@ -2,6 +2,7 @@ import { Product } from './../../../models/product.model';
 import { ProductService } from './../../../services/product/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-product',
@@ -9,17 +10,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-product.component.scss'],
 })
 export class CreateProductComponent implements OnInit {
-  product: Product = {
-    name: 'Produto de Test',
-    price: 125.2,
-  };
+  productForm: FormGroup;
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm(): void {
+    this.productForm = this.formBuilder.group({
+      name: [null, Validators.required],
+      price: [null, [Validators.required, Validators.pattern(/\d/)]],
+    });
+  }
 
   addProduct(): void {
-    this.productService.AddProduct(this.product).subscribe(() => {
+    this.productService.addProduct(this.productForm.value).subscribe(() => {
       this.productService.showMessage('Product added with success!');
     });
   }

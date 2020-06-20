@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Camisa de Flanela",
+      "price": 45
+    },
+    {
+      "id": 2,
+      "name": "Camisa Social",
+      "price": 80
+    },
+    {
+      "id": 3,
+      "name": "Camiseta",
+      "price": 30
+    },
+    {
+      "name": "Roupas",
+      "price": 500,
+      "id": 4
+    },
+    {
+      "name": "Camisa",
+      "price": "100",
+      "id": 5
+    }
+  ]
+}
