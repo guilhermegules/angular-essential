@@ -20,7 +20,9 @@
 
 - `npm start`  or `yarn start` to run the application;
 
-- `npm run api` or `yarn api`to run json-server with data;
+- `npm run api` or `yarn api` to run json-server with data;
+
+- `npm test` or `yarn test` to run unit tests;
 
 ## To Do:
 
