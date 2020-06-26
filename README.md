@@ -27,7 +27,7 @@
 ## To Do:
 
 - [] add Docker and docker-compose;
-- [x] add unit tests with Jest;
+- [] add unit tests with Jest;
 - [] add e2e tests with cypress;
 
 ## Why use Jest? (Benefits compared to Karma + jasmine)
