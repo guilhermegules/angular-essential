@@ -1,7 +1,9 @@
-import { ProductService } from './../../../services/product/product.service';
-import { Product } from './../../../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+
+import { ProductService } from './../../../services/product/product.service';
+import { Product } from './../../../models/product.model';
 
 @Component({
   selector: 'app-remove-product',
@@ -10,18 +12,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RemoveProductComponent implements OnInit {
   product: Product;
+  removalProductForm: FormGroup;
 
   constructor(
     private productService: ProductService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.productService.getProductById(id).subscribe((product) => {
-      this.product = product;
-    });
+    this.initForm();
+    this.getProductForDelete();
   }
 
   removeProduct(id: number): void {
@@ -29,6 +31,22 @@ export class RemoveProductComponent implements OnInit {
     this.productService.removeProduct(newId).subscribe(() => {
       this.productService.showMessage('Produto deletado com sucesso!');
       this.router.navigate(['/products']);
+    });
+  }
+
+  getProductForDelete(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.productService.getProductById(id).subscribe((product) => {
+      this.product = product;
+      this.removalProductForm.get('name').setValue(product.name);
+      this.removalProductForm.get('price').setValue(product.price);
+    });
+  }
+
+  initForm(): void {
+    this.removalProductForm = this.formBuilder.group({
+      name: [null],
+      price: [null]
     });
   }
 

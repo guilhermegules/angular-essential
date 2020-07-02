@@ -1,22 +1,29 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
+import { FormTestingModule } from './../../../../testing/form-testing.module';
+import { ProductService } from './../../../services/product/product.service';
+import { TestingModule } from './../../../../testing/testing.module';
 import { UpdateProductComponent } from './update-product.component';
 
 describe('UpdateProductComponent', () => {
   let component: UpdateProductComponent;
-  let fixture: ComponentFixture<UpdateProductComponent>;
+  let spectator: Spectator<UpdateProductComponent>;
+  let productService: ProductService;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UpdateProductComponent ]
-    })
-    .compileComponents();
-  }));
+  const createComponent = createComponentFactory({
+    component: UpdateProductComponent,
+    imports: [TestingModule, FormTestingModule],
+    shallow: true
+  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateProductComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(async () => {
+    spectator = createComponent();
+    component = spectator.component;
+
+    productService = spectator.inject(ProductService);
+
+    spectator.detectChanges();
+    await spectator.fixture.whenStable();
   });
 
   it('should create', () => {

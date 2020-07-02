@@ -25,7 +25,6 @@ registerLocaleData(localePt);
     PurpleDirective,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ViewsModule,

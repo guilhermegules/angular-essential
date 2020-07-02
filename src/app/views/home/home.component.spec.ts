@@ -1,22 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestingModule } from './../../../testing/testing.module';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
-import { Home2Component } from './home2.component';
+import { HomeComponent } from './home.component';
 
 describe('Home2Component', () => {
-  let component: Home2Component;
-  let fixture: ComponentFixture<Home2Component>;
+  let component: HomeComponent;
+  let spectator: Spectator<HomeComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ Home2Component ]
-    })
-    .compileComponents();
-  }));
+  const createComponent = createComponentFactory({
+    component: HomeComponent,
+    imports: [TestingModule],
+    shallow: true
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Home2Component);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
+    component = spectator.component;
+
+    spectator.detectChanges();
   });
 
   it('should create', () => {
