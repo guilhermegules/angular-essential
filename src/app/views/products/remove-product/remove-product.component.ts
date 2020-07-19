@@ -19,7 +19,7 @@ export class RemoveProductComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -45,8 +45,8 @@ export class RemoveProductComponent implements OnInit {
 
   initForm(): void {
     this.removalProductForm = this.formBuilder.group({
-      name: [null],
-      price: [null]
+      name: [{ value: null, disabled: true }],
+      price: [{ value: null, disabled: true }]
     });
   }
 

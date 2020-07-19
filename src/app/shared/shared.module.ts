@@ -17,7 +17,6 @@ import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
@@ -31,7 +30,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    BrowserModule,
   ],
   exports: [
     MatToolbarModule,
@@ -47,7 +45,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    BrowserModule
   ],
 })
 export class SharedModule {}
