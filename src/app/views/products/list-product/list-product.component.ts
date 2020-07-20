@@ -18,11 +18,4 @@ export class ListProductComponent implements OnInit {
       this.products = values;
     });
   }
-
-  removeProduct(id: string): void {
-    this.productService.removeProduct(id).subscribe(() => {
-      this.productService.showMessage('Produto removido com sucesso!');
-      this.productService.getProducts();
-    });
-  }
 }
