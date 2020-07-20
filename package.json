@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:cc": "jest --coverage",
+    "test:coverage": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "api": "json-server --watch src/app/api/api.json --port 8000"
@@ -32,7 +32,6 @@
     "@angular-devkit/build-angular": "~0.901.9",
     "@angular/cli": "~9.1.9",
     "@angular/compiler-cli": "~9.1.11",
-    "@ngneat/spectator": "^5.12.0",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/jest": "^26.0.3",

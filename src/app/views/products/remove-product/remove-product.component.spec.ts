@@ -70,7 +70,7 @@ describe('RemoveProductComponent', () => {
   describe('removeProduct', () => {
     it('should delete one product, show a message and redirect to products route', () => {
       jest.spyOn(productService, 'removeProduct').mockImplementation(() => of({id: 1, name: 'test', price: 30}));
-      jest.spyOn(productService, 'showMessage').mockImplementation();
+      jest.spyOn(productService, 'showMessage');
       jest.spyOn(router, 'navigate').mockImplementation();
 
       component.removeProduct(1);
