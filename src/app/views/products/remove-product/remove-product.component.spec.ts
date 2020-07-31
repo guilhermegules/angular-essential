@@ -6,19 +6,18 @@ import { FormTestingModule } from './../../../../testing/form-testing.module';
 import { TestingModule } from './../../../../testing/testing.module';
 import { RemoveProductComponent } from './remove-product.component';
 import { of } from 'rxjs';
-import { Product } from 'src/app/models/product.model';
 
 describe('RemoveProductComponent', () => {
   let component: RemoveProductComponent;
   let spectator: Spectator<RemoveProductComponent>;
   let router: Router;
-  let route: ActivatedRoute;
+  // let route: ActivatedRoute;
   let productService: ProductService;
 
   const createComponent = createComponentFactory({
     component: RemoveProductComponent,
     imports: [TestingModule, FormTestingModule],
-    shallow: true
+    shallow: true,
   });
 
   beforeEach(() => {
@@ -27,7 +26,7 @@ describe('RemoveProductComponent', () => {
 
     productService = spectator.inject(ProductService);
     router = spectator.inject(Router);
-    route = spectator.inject(ActivatedRoute);
+    // route = spectator.inject(ActivatedRoute);
 
     spectator.detectChanges();
   });
@@ -42,7 +41,7 @@ describe('RemoveProductComponent', () => {
 
       expect(component.removalProductForm.get('name').disabled).toBeTruthy();
       expect(component.removalProductForm.get('price').disabled).toBeTruthy();
-    })
+    });
   });
 
   describe('Cancel', () => {
@@ -52,24 +51,24 @@ describe('RemoveProductComponent', () => {
       component.cancel();
 
       expect(router.navigate).toHaveBeenCalledWith(['/products']);
-    })
+    });
   });
 
   describe('getProductForDelete', () => {
     it('should get one product from service', () => {
-      jest.spyOn(productService, 'getProductById').mockImplementation(() => of({name: 'test', price: 30}));
+      jest.spyOn(productService, 'getProductById').mockImplementation(() => of({ name: 'test', price: 30 }));
 
       component.getProductForDelete();
 
       expect(productService.getProductById).toHaveBeenCalled();
       expect(component.removalProductForm.get('name').value).toEqual('test');
       expect(component.removalProductForm.get('price').value).toEqual(30);
-    })
+    });
   });
 
   describe('removeProduct', () => {
     it('should delete one product, show a message and redirect to products route', () => {
-      jest.spyOn(productService, 'removeProduct').mockImplementation(() => of({id: 1, name: 'test', price: 30}));
+      jest.spyOn(productService, 'removeProduct').mockImplementation(() => of({ id: 1, name: 'test', price: 30 }));
       jest.spyOn(productService, 'showMessage');
       jest.spyOn(router, 'navigate').mockImplementation();
 
@@ -78,6 +77,6 @@ describe('RemoveProductComponent', () => {
       expect(productService.showMessage).toHaveBeenCalledWith('Produto deletado com sucesso!');
       expect(router.navigate).toHaveBeenCalledWith(['/products']);
       expect(productService.removeProduct).toHaveBeenCalledWith('1');
-    })
-  })
+    });
+  });
 });

@@ -12,7 +12,7 @@ import { map, catchError } from 'rxjs/operators';
 export class ProductService {
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
-  showMessage(message: string, isError: boolean = false): void {
+  showMessage(message: string, isError = false): void {
     this.snackBar.open(message, '✕', {
       duration: 3000,
       horizontalPosition: 'right',
@@ -22,12 +22,10 @@ export class ProductService {
   }
 
   addProduct(product: Product): Observable<Product> {
-    return this.http
-      .post<Product>(`${environment.apiUrl}/products`, product)
-      .pipe(
-        map((value) => value),
-        catchError((err) => this.errorHandler(err))
-      );
+    return this.http.post<Product>(`${environment.apiUrl}/products`, product).pipe(
+      map(value => value),
+      catchError(err => this.errorHandler(err)),
+    );
   }
 
   getProducts(): Observable<Product[]> {
@@ -39,10 +37,7 @@ export class ProductService {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(
-      `${environment.apiUrl}/products/${product.id}`,
-      product
-    );
+    return this.http.put<Product>(`${environment.apiUrl}/products/${product.id}`, product);
   }
 
   removeProduct(id: string): Observable<Product> {
@@ -51,6 +46,6 @@ export class ProductService {
 
   private errorHandler(error: any): Observable<any> {
     this.showMessage('Ocorreu um erro!', true);
-    return EMPTY;
+    return error;
   }
 }

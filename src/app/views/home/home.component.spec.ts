@@ -10,7 +10,7 @@ describe('Home2Component', () => {
   const createComponent = createComponentFactory({
     component: HomeComponent,
     imports: [TestingModule],
-    shallow: true
+    shallow: true,
   });
 
   beforeEach(() => {

@@ -13,7 +13,7 @@ describe('ListProductComponent', () => {
   const createComponent = createComponentFactory({
     component: ListProductComponent,
     imports: [TestingModule],
-    shallow: true
+    shallow: true,
   });
 
   beforeEach(() => {
@@ -31,7 +31,12 @@ describe('ListProductComponent', () => {
 
   describe('ngOnInit', () => {
     it('should init and call method for populate fields', () => {
-      jest.spyOn(productService, 'getProducts').mockImplementation(() => of([{ name: 'product test 1', price: 10 }, { name: 'product test 2', price: 20 }]));
+      jest.spyOn(productService, 'getProducts').mockImplementation(() =>
+        of([
+          { name: 'product test 1', price: 10 },
+          { name: 'product test 2', price: 20 },
+        ]),
+      );
 
       component.ngOnInit();
 

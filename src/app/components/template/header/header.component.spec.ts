@@ -10,7 +10,7 @@ describe('HeaderComponent', () => {
   const createComponent = createComponentFactory({
     component: HeaderComponent,
     imports: [TestingModule],
-    shallow: true
+    shallow: true,
   });
 
   beforeEach(() => {

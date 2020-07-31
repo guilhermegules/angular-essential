@@ -1,9 +1,9 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator';
-
 import { FormTestingModule } from './../../../../testing/form-testing.module';
 import { ProductService } from './../../../services/product/product.service';
 import { TestingModule } from './../../../../testing/testing.module';
 import { UpdateProductComponent } from './update-product.component';
+
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
@@ -17,7 +17,7 @@ describe('UpdateProductComponent', () => {
   const createComponent = createComponentFactory({
     component: UpdateProductComponent,
     imports: [TestingModule, FormTestingModule],
-    shallow: true
+    shallow: true,
   });
 
   beforeEach(async () => {
@@ -52,7 +52,6 @@ describe('UpdateProductComponent', () => {
       expect(component.productUpdateForm.get('price').hasError('pattern')).toBeTruthy();
     });
 
-
     it('should not have pattern Validator error', () => {
       component.initForm();
 
@@ -69,7 +68,7 @@ describe('UpdateProductComponent', () => {
 
       component.cancel();
 
-      expect(router.navigate).toHaveBeenCalledWith(['/products'])
+      expect(router.navigate).toHaveBeenCalledWith(['/products']);
     });
   });
 
@@ -95,6 +94,6 @@ describe('UpdateProductComponent', () => {
       expect(productService.showMessage).toHaveBeenCalledWith('Produto atualizado com sucesso!');
       expect(router.navigate).toHaveBeenCalledWith(['/products']);
       expect(productService.updateProduct).toHaveBeenCalled();
-    })
-  })
+    });
+  });
 });

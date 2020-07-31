@@ -18,8 +18,8 @@ export class RemoveProductComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
-  ) { }
+    private formBuilder: FormBuilder,
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -36,7 +36,7 @@ export class RemoveProductComponent implements OnInit {
 
   getProductForDelete(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.productService.getProductById(id).subscribe((product) => {
+    this.productService.getProductById(id).subscribe(product => {
       this.product = product;
       this.removalProductForm.get('name').setValue(product.name);
       this.removalProductForm.get('price').setValue(product.price);
@@ -46,7 +46,7 @@ export class RemoveProductComponent implements OnInit {
   initForm(): void {
     this.removalProductForm = this.formBuilder.group({
       name: [{ value: null, disabled: true }],
-      price: [{ value: null, disabled: true }]
+      price: [{ value: null, disabled: true }],
     });
   }
 

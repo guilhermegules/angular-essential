@@ -13,7 +13,7 @@ describe('CreateProductComponent', () => {
   const createComponent = createComponentFactory({
     component: CreateProductComponent,
     imports: [TestingModule, FormTestingModule],
-    shallow: true
+    shallow: true,
   });
 
   beforeEach(() => {

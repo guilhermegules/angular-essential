@@ -1,6 +1,6 @@
-import { TestingModule } from './../../../testing/testing.module';
 import { SpectatorService, createServiceFactory } from '@ngneat/spectator';
 
+import { TestingModule } from './../../../testing/testing.module';
 import { HeaderService } from './header.service';
 
 describe('HeaderService', () => {
@@ -9,7 +9,7 @@ describe('HeaderService', () => {
 
   const createService = createServiceFactory({
     service: HeaderService,
-    imports: [TestingModule]
+    imports: [TestingModule],
   });
 
   beforeEach(() => {

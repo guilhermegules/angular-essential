@@ -3,21 +3,20 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HeaderService {
   private headerData = new BehaviorSubject<HeaderData>({
     title: 'Inicio',
     icon: 'dashboard',
-    route: ''
+    route: '',
   });
-
-  constructor() { }
 
   get getHeaderData(): HeaderData {
     return this.headerData.value;
   }
 
+  // eslint-disable-next-line accessor-pairs
   set setHeaderData(headerData: HeaderData) {
     this.headerData.next(headerData);
   }

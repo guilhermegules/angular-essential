@@ -12,11 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateProductComponent implements OnInit {
   productForm: FormGroup;
 
-  constructor(
-    private productService: ProductService,
-    private router: Router,
-    private formBuilder: FormBuilder
-  ) {}
+  constructor(private productService: ProductService, private router: Router, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.initForm();

@@ -1,6 +1,6 @@
-import { TestingModule } from './../testing/testing.module';
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
+import { TestingModule } from './../testing/testing.module';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -10,7 +10,7 @@ describe('AppComponent', () => {
   const createComponent = createComponentFactory({
     component: AppComponent,
     imports: [TestingModule],
-    shallow: true
+    shallow: true,
   });
 
   beforeEach(() => {

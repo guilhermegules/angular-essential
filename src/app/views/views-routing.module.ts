@@ -22,26 +22,26 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: CreateProductComponent
+        component: CreateProductComponent,
       },
       {
         path: 'list',
-        component: ListProductComponent
+        component: ListProductComponent,
       },
       {
         path: 'update/:id',
-        component: UpdateProductComponent
+        component: UpdateProductComponent,
       },
       {
         path: 'remove/:id',
-        component: RemoveProductComponent
-      }
-    ]
-  }
+        component: RemoveProductComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ViewsRoutingModule { }
+export class ViewsRoutingModule {}

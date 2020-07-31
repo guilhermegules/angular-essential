@@ -1,0 +1,48 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "jest": true
+    },
+    "extends": [
+        "standard",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": ["@typescript-eslint", "prettier", "import-helpers", "unused-imports", "jest"],
+    "rules": {
+      "prettier/prettier": "warn",
+      "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
+      "no-useless-constructor": 0,
+      "handle-callback-err": "warn",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        { "selector": "interface", "format": ["PascalCase"] },
+        { "selector": "enum", "format": ["PascalCase"] },
+        { "selector": "enumMember", "format": ["UPPER_CASE"] },
+        { "selector": "property", "modifiers": ["readonly"], "format": ["UPPER_CASE"] },
+        { "selector": "memberLike", "format": ["camelCase"] }
+      ],
+      "jest/expect-expect": "error",
+      "jest/no-alias-methods": "warn",
+      "jest/no-deprecated-functions": "error",
+      "jest/no-export": "error",
+      "jest/no-identical-title": "error",
+      "jest/no-if": "error",
+      "jest/no-jest-import": "error",
+      "jest/no-large-snapshots": "error",
+      "jest/no-standalone-expect": "error",
+      "jest/no-test-return-statement": "error",
+      "jest/prefer-to-be-null": "warn",
+      "jest/prefer-to-be-undefined": "warn",
+      "jest/valid-describe": "error",
+      "jest/valid-title": "error"
+    }
+}

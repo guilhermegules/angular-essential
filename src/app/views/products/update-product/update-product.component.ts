@@ -18,7 +18,7 @@ export class UpdateProductComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class UpdateProductComponent implements OnInit {
 
   getProductForUpdate(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.productService.getProductById(id).subscribe((product) => {
+    this.productService.getProductById(id).subscribe(product => {
       this.product = product;
       this.productUpdateForm.get('name').setValue(this.product.name);
       this.productUpdateForm.get('price').setValue(this.product.price);

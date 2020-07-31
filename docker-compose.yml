@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+    angular-service:
+      container_name: angular-essential
+      build: .
+      ports:
+        - '4200:4200'
+      volumes:
+        - ./:/usr/src/app
+        - /usr/src/app/node_modules
